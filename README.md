@@ -31,6 +31,10 @@ services:
     image: v3xl/osbot-kasmvnc:latest
     hostname: osbot  
     environment:
+    
+    #VNC
+      - VNC_PW=password
+  
     #OSBot login details
       - osbot_username=<USERNAME>
       - osbot_password=<PASSWORD>
