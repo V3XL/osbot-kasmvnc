@@ -7,10 +7,10 @@ curl -L -o "/home/kasm-user/OSBot.jar" "http://osbot.org/mvc/get"
 # Set bot options
 bot_options=""
 if [[ ! -z "$bot_pin" ]]; then
-	bot_options="-bot \$bot_username:\$bot_password:\$bot_pin"
+	bot_options="-bot $bot_username:$bot_password:$bot_pin"
 
 else
-	bot_options="-bot \$bot_username:\$bot_password:0000"
+	bot_options="-bot $bot_username:$bot_password:0000"
 fi
 
 
@@ -38,11 +38,11 @@ fi
 
 #Final command
 command="/usr/bin/java -jar /home/kasm-user/OSBot.jar --allow nointerface \
--login \$osbot_username:\$osbot_password \
+-login $osbot_username:$osbot_password \
 $bot_options \
 $proxy_options \
--world \$bot_world \
--script \$script_name:\$script_parameters \
+-world $bot_world \
+-script $script_name:$script_parameters \
 -debug 0 \
 $misc_options \
 &"
