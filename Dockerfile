@@ -17,7 +17,7 @@ ADD . $osbot_password
 # Bot details
 ENV bot_username=""
 ENV bot_password=""
-ENV bot_pin=0
+ENV bot_pin=0000
 ENV bot_world=""
 ADD . $bot_username
 ADD . $bot_password
@@ -51,11 +51,15 @@ ADD . $lowcpu
 ADD launch.sh /home/kasm-user/
 RUN chmod +x /home/kasm-user/launch.sh
 
+# Create OSBot & Scripts folder
+RUN mkdir /home/kasm-user/OSBot; mkdir /home/kasm-user/OSBot/Scripts
+
+
 # Install required packages
 RUN yum update -y; yum install curl -y; yum install java-1.8.0-openjdk-devel -y
 
 # Remove GUI panel
-#RUN yum remove -y xfce4-panel
+RUN yum remove -y xfce4-panel
 
 # Build the launch command
 RUN echo "/usr/bin/desktop_ready && bash /home/kasm-user/launch.sh" > $STARTUPDIR/custom_startup.sh \
