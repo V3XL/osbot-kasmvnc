@@ -12,7 +12,7 @@ v3xl/osbot-kasmvnc:latest
 ```
 
 
-View the container by visiting https://<IPaddress>:6901
+View the container by visiting https://container:6901
 
 Username: kasm_user
 
